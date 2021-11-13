@@ -1,0 +1,30 @@
+<p>liste-produits works!</p>
+Mot Cle:<input [(ngModel)]=texte>
+<table border=1 *ngIf="productsF!=null;else vide">
+      <tr>
+            <th>
+                  <button (click)="masquer()">{{valeur}}</button>
+            </th>
+            <th>
+                  id
+            </th>
+            <th>
+                  nom
+            </th>
+            <th>
+                  prix
+            </th>
+            <th>
+                  quantite
+            </th>
+      </tr>
+     
+      <tr *ngFor="let p of productsF" [ngStyle]="{color:getcolor(p.quantite)}">
+            <td><img *ngIf="valeur=='masquer'" [src]="p.urlImg" width=50 height="50"></td>
+            <td>{{p.id}}</td>
+            <td>{{p.nom}}</td>
+            <td>{{p.prix}}</td>
+            <td>{{p.quantite}}</td>
+      </tr>
+</table>
+<ng-template #vide><h4 style="color:red;" >Tableau vide</h4></ng-template>
